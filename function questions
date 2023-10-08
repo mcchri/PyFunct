@@ -1,0 +1,183 @@
+import random
+
+ 
+
+# 
+# #118
+# def call_num():
+#     num = input("Pleae enter a number: ")
+#     num = int(num)
+#     return num
+# def print_num(x):
+#     for i in range(x):
+#         print(i+1)
+# print_num(call_num())
+# 
+# #119
+# def rand():
+#     low = int(input("Enter a low number: "))
+#     high = int(input("Enter a high number: "))
+#     comp_num = random.randint(low, high)
+#     return comp_num 
+# def num_co():
+#     num = int(input("Iam thinking of a number...Guess the number"))
+#     return num
+# 
+# def guess():
+#     ok=0
+#     ran = rand()
+#     while ok < 1:
+#         x =  num_co()
+#         if x == ran:
+#             print("Correct, you win")
+#             ok+=1
+#         elif x != ran:
+#             if x > ran:
+#                 print("Too high")
+#             elif x < ran:
+#                 print("Too low")
+# guess()                
+#                
+# #120
+# def check(x,y):
+#     x = int(x)
+#     if x == y:
+#         print("Correct")
+#     elif x != y:
+#         print("Incorrect")
+# 
+# def one_pro():
+#     num1 = random.randint(5, 20)
+#     num2 = random.randint(5, 20)
+#     sumAcc = num1 + num2
+#     print("What is ", num1, " + ", num2)
+#     sum1 = input()
+#     print("Your answer is: ", sum1, "The correct answer is: ", sumAcc)
+#     check(sum1, sumAcc)
+#         
+# def two_pro():
+#     num1 = random.randint(25, 50)
+#     num2 = random.randint(1, 25)
+#     sumAcc = num1 - num2
+#     print("What is ", num1, " - ", num2)
+#     sum1 = input()
+#     print("Your answer is: ", sum1, "The correct answer is: ", sumAcc)
+#     check(sum1, sumAcc)
+# 
+# print("1) Addition \n 2) Subtraction \n Enter 1 or 2: ")
+# inp = input("")
+# if inp == "1":
+#     one_pro()
+# elif inp == "2":
+#     two_pro()
+# else:
+#     print("Please input 1 or 2, invalid input")
+#     
+#121
+# def add_name(x):
+#     name = input("enter a name to add to the list")
+#     x.append(name)
+# def change_name(x):
+#     change = input("enter the name you want to replace from the list")
+#     orig = input("Enter the name that you want to change")
+#     count = 0
+#     for i in x:
+#         if i == orig:
+#             list_names[count] = change
+#         count = count + 1    
+# def delete_name(x):
+#     delete = input("Enter the name to delete from the list: ")
+#     x.remove(delete)
+# def View_list(x):
+#     print(list_names)    
+# def endPro():
+#     return 1
+# list_names = []
+# ok=0
+# inp = 0
+# while inp != "5":
+#     print(" 1) Add name: 1 \n 2) change name: 2 \n 3) delete name: 3 \n 4) view names: 4 \n 5) end program: 5 \n")
+#     inp = input()
+#     if inp == "1":
+#         add_name(list_names)
+#     elif inp == "2":
+#         change_name(list_names)
+#     elif inp == "3":
+#         delete_name(list_names)
+#     elif inp == "4":
+#         View_list(list_names)
+#     else:
+#         print("please input the valid numbers")
+#122
+# def add_to_file():
+#     f = open("Salaries.csv", "a")
+#     name = input("Enter a name: ")
+#     salary = input("Enter a salary: ")
+#     f.write(name)
+#     f.write(",")
+#     f.write(salary)
+#     f.write("\n")
+#     f.close()
+# def view_records():
+#         list1 = []
+#         f = open("Salaries.csv", "r")
+#         for line in f:
+#             print(line)
+#         
+# inp = 0
+# while inp != "3":
+#     print(" 1) Add to file \n 2) View all records \n 3) Quit program \n ")
+#     inp = input()
+#     if inp == "1":
+#         add_to_file()
+#     elif inp == "2":
+#          view_records()
+
+ 
+
+#123
+#adds a line to the file
+def add_to_file():
+    f = open("Salaries.csv", "a")
+    name = input("Enter a name: ")
+    salary = input("Enter a salary: ")
+    f.write(name)
+    f.write(",")
+    f.write(salary)
+    f.write("\n")
+    f.close()
+#shows the excel file     
+def view_records():
+        list1 = []
+        f = open("Salaries.csv", "r")
+        for line in f:
+            print(line)
+#deletes a line from the file            
+def delete_rec():
+    list1 = []
+    name = input("Enter a name to delete: ")
+    f = open("Salaries.csv", "r")
+    for i in f:
+        x = i.split(',')
+        if x[0] == name:
+            content = f.read()
+            content = content.replace(i,"")
+            f.close()
+            f = open("Salaries.csv", "w")
+            f.write(content)
+            f.close()
+            break
+    
+    
+inp = 0
+while inp != "4":
+    print(" 1) Add to file \n 2) View all records \n 3) Delete a record \n 4) Quit program")
+    inp = input()
+    if inp == "1":
+        add_to_file()
+    elif inp == "2":
+        view_records()
+    elif inp == "3":
+        delete_rec()
+    else:
+        print("Please enter a valid number.")
